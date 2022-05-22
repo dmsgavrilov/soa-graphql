@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Игра №{{ game.id }}{% endblock %}
+
+{% block content %}
+    <header>
+        <h1 class="section-header">Игра №{{ game.id }}</h1>
+    </header>
+
+    <ul class="lk-info-ul">
+        <li class="lk-info-li">Номер игры: {{ game.id }}</li>
+        <li class="lk-info-li">Статус: {{ game.status }}</li>
+        <li class="lk-info-li">Дата проведения: {{ game.date }}</li>
+    </ul>
+
+    <h1 class="section-header-p">Комментарии:</h1>
+    <ul class="lk-info-ul">
+        {% for comment in game.comments %}
+            <li class="lk-info-li">comment</li>
+        {% endfor %}
+    </ul>
+
+    <p><a class="action_button" href="{{ url_for('get_games') }}">Назад</a></p>
+{% endblock %}

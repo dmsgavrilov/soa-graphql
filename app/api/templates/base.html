@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='styles/base.css') }}">
+    <link href="//capp.nicepage.com/3ccdde6abeaddf39fef8e8df85b03a6249253208/main-libs.css" rel="stylesheet">
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>

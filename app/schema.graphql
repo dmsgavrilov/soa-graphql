@@ -1,0 +1,39 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Game {
+    id: ID!
+    status: String!
+    date: String!
+    comments: [String]
+}
+
+type GameResult {
+    success: Boolean!
+    errors: [String]
+    game: Game
+}
+
+type GamesResult {
+    success: Boolean!
+    errors: [String]
+    games: [Game]
+}
+
+type Query {
+    games: GamesResult!
+    game(gameId: ID!): GameResult!
+}
+
+type DeleteGameResult {
+    success: Boolean!
+    errors: [String]
+}
+
+type Mutation {
+    createGame(status: String!, date: String!, comments: [String]): GameResult!
+    deleteGame(gameId: ID!): DeleteGameResult!
+    addComments(gameId: String!, comments: [String]): GameResult!
+}

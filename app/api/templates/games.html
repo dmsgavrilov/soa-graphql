@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Игры{% endblock %}
+
+{% block content %}
+    <header>
+        <h1 class="section-header">Игры</h1>
+    </header>
+
+   <table class="table">
+       <tr>
+           <th>Номер игры</th>
+           <th>Подробнее</th>
+           <th>Статус</th>
+           <th>Дата проведения</th>
+       </tr>
+       {% for game in games %}
+       <tr>
+           <td>{{game.id}}</td>
+            <td><a href="{{ url_for('get_game', game_id=game.id) }}">Посмотреть</a></td>
+           <td>{{game.status}}</td>
+           <td>{{game.date}}</td>
+       </tr>
+       {% endfor %}
+   </table>
+{% endblock %}
